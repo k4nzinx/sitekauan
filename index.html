@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça oportunidades imobiliárias com Cauan, corretor de imóveis. Fale pelo WhatsApp.">
+  <title>Cauan | Corretor de Imóveis</title>
+  <style>
+    :root {
+      --preto: #101010;
+      --preto-suave: #1b1b1b;
+      --dourado: #c8a45d;
+      --branco: #f7f5f0;
+      --cinza: #bdb8ae;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--preto);
+      color: var(--branco);
+    }
+
+    header {
+      min-height: 76px;
+      padding: 20px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(200, 164, 93, .25);
+    }
+
+    .logo {
+      color: var(--dourado);
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+    }
+
+    nav a {
+      color: var(--branco);
+      text-decoration: none;
+      margin-left: 22px;
+      font-size: .95rem;
+    }
+
+    nav a:hover { color: var(--dourado); }
+
+    main {
+      min-height: calc(100vh - 150px);
+      display: flex;
+      align-items: center;
+      padding: 70px 7%;
+    }
+
+    .apresentacao {
+      max-width: 760px;
+    }
+
+    .etiqueta {
+      color: var(--dourado);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: .78rem;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 18px 0;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.05;
+    }
+
+    h1 span { color: var(--dourado); }
+
+    .texto {
+      max-width: 590px;
+      color: var(--cinza);
+      font-size: 1.1rem;
+      line-height: 1.8;
+    }
+
+    .acoes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .botao {
+      display: inline-block;
+      padding: 15px 23px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: .2s ease;
+    }
+
+    .botao-principal {
+      background: var(--dourado);
+      color: var(--preto);
+    }
+
+    .botao-principal:hover { background: #dfbd79; }
+
+    .botao-secundario {
+      border: 1px solid var(--dourado);
+      color: var(--dourado);
+    }
+
+    .botao-secundario:hover {
+      background: rgba(200, 164, 93, .1);
+    }
+
+    footer {
+      padding: 22px 7%;
+      color: #8f8a81;
+      border-top: 1px solid rgba(200, 164, 93, .18);
+      font-size: .85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+      }
+      nav a { margin: 0 16px 0 0; }
+      main { padding-top: 55px; padding-bottom: 55px; }
+      .texto { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">CAUAN | IMÓVEIS</div>
+    <nav>
+      <a href="#inicio">Início</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="apresentacao">
+      <div class="etiqueta">Corretor de imóveis</div>
+      <h1>Encontre seu próximo <span>imóvel.</span></h1>
+      <p class="texto">
+        Conheça oportunidades imobiliárias, lançamentos e empreendimentos.
+        Estou aqui para ajudar você a encontrar a opção ideal e tirar suas dúvidas.
+      </p>
+
+      <div class="acoes" id="contato">
+        <!-- Troque o número abaixo pelo seu WhatsApp:
+             código do Brasil + DDD + número, somente números. -->
+        <a class="botao botao-principal"
+           href="https://wa.me/55DDDNÚMERO?text=Olá%2C%20Cauan!%20Gostaria%20de%20mais%20informações."
+           target="_blank" rel="noopener">
+          Falar pelo WhatsApp
+        </a>
+
+        <!-- Troque o endereço abaixo pelo link do seu Instagram. -->
+        <a class="botao botao-secundario"
+           href="https://www.instagram.com/SEUUSUARIO/"
+           target="_blank" rel="noopener">
+          Meu Instagram
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Cauan — Corretor de Imóveis. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
