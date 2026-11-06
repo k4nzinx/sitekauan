@@ -1030,7 +1030,18 @@
       .hero-benefit small { font-size:.68rem; }
       .benefit-icon { font-size:25px; width:25px; flex-basis:25px; }
     }
-</style>
+
+    .detail-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:24px 0 8px}
+    .detail-gallery figure{margin:0;overflow:hidden;border-radius:13px;background:#171717;border:1px solid rgba(212,175,55,.18)}
+    .detail-gallery img{display:block;width:100%;height:150px;object-fit:cover;cursor:zoom-in}
+    .detail-gallery figcaption{padding:8px 10px;color:#b9b4a8;font-size:.72rem;line-height:1.35}
+    .property-image{object-fit:cover}
+    .property-card .tag.unavailable{color:#f0c56b;border-color:rgba(240,197,107,.4)}
+    .detail-note{margin-top:22px}
+    @media(max-width:700px){.detail-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.detail-gallery img{height:125px}}
+    @media(max-width:420px){.detail-gallery{grid-template-columns:1fr 1fr}.detail-gallery img{height:105px}}
+
+  </style>
 </head>
 
 <body>
@@ -1157,6 +1168,7 @@
         <span class="tag" id="detailTag">LANÇAMENTO</span>
         <p id="detailDescription"></p>
         <div class="detail-facts" id="detailFacts"></div>
+        <div class="detail-gallery" id="detailGallery" aria-label="Imagens do empreendimento"></div>
         <p class="detail-note">Consulte disponibilidade, valores e condições atualizadas diretamente com o corretor. As informações podem mudar conforme a tabela e a unidade.</p>
         <a class="btn btn-primary" id="detailWhatsapp" href="#" target="_blank" rel="noopener">Quero mais informações pelo WhatsApp</a>
       </div>
@@ -1169,7 +1181,7 @@
       1. Coloque seu WhatsApp com DDI + DDD + número, somente números.
          Exemplo de formato: 5544999999999
       2. Coloque seu usuário do Instagram, sem @.
-      3. Adicione as fotos oficiais na pasta imagens e mantenha os nomes indicados.
+      3. As imagens incluídas nas páginas de detalhes foram extraídas dos materiais fornecidos pelos empreendimentos.
     */
     const CONFIG = {
       whatsapp: "5544997621088",
@@ -1183,139 +1195,670 @@
       Depois você pode editar estas informações aqui.
     */
     const properties = [
+  {
+    "id": "mirante",
+    "name": "Mirante do Alvorada",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Jardim Alvorada · Maringá/PR",
+    "description": "Exclusividade no alto do Jardim Alvorada, com vista privilegiada, praticidade e lazer para aproveitar o dia a dia.",
+    "facts": [
+      [
+        "Endereço",
+        "Rua Nilo Cairo, 833 – Jardim Alvorada, Maringá/PR"
+      ],
+      [
+        "Unidades",
+        "144 unidades em 1 torre"
+      ],
+      [
+        "Plantas",
+        "2 quartos: 36,76 m², 44,21 m² e 44,44 m²"
+      ],
+      [
+        "Com sacada",
+        "2 quartos: 44,09 m² e 44,32 m²"
+      ],
+      [
+        "Garagem",
+        "148 vagas de carro"
+      ],
+      [
+        "Lazer",
+        "Piscinas adulto e infantil, playground, bicicletário e praça"
+      ],
+      [
+        "Diferenciais",
+        "Torre única e vista livre e panorâmica para o centro"
+      ]
+    ],
+    "gallery": [
       {
-        id: "mirante",
-        name: "Mirante",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-08.webp",
+        "alt": "mirante — página 8 do material do empreendimento"
       },
       {
-        id: "montevideu",
-        name: "Montevidéu",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-10.webp",
+        "alt": "mirante — página 10 do material do empreendimento"
       },
       {
-        id: "maldivas",
-        name: "Maldivas",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-11.webp",
+        "alt": "mirante — página 11 do material do empreendimento"
       },
       {
-        id: "reserva-das-tulipas",
-        name: "Reserva das Tulipas",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-15.webp",
+        "alt": "mirante — página 15 do material do empreendimento"
       },
       {
-        id: "reserva-das-palmeiras",
-        name: "Reserva das Palmeiras",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-18.webp",
+        "alt": "mirante — página 18 do material do empreendimento"
       },
       {
-        id: "cittrino",
-        name: "Cittrino",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-24.webp",
+        "alt": "mirante — página 24 do material do empreendimento"
       },
       {
-        id: "martini",
-        name: "Martini",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
-      },
-      {
-        id: "maiori",
-        name: "Maiori",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
-      },
-      {
-        id: "terra-de-santa-cruz",
-        name: "Terra de Santa Cruz",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
-      },
-      {
-        id: "aya-residence",
-        name: "Aya Residence",
-        category: "lançamento",
-        status: "Lançamento",
-        description: "Entre em contato para receber apresentação, plantas, disponibilidade e condições atualizadas deste empreendimento.",
-        facts: [
-          ["Informações", "Consulte os detalhes"],
-          ["Plantas", "Consulte as opções disponíveis"],
-          ["Valores", "Consulte as condições atualizadas"],
-          ["Disponibilidade", "Consulte unidades"]
-        ]
+        "src": "imagens/mirante-27.webp",
+        "alt": "mirante — página 27 do material do empreendimento"
       }
-    ];
+    ],
+    "image": "imagens/mirante-08.webp"
+  },
+  {
+    "id": "montevideu",
+    "name": "Montevidéu",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Chácaras Aeroporto · Maringá/PR",
+    "description": "Residencial na Zona Sul de Maringá, próximo ao Contorno Sul, com apartamentos de 2 quartos e opções com sacada e churrasqueira.",
+    "facts": [
+      [
+        "Endereço",
+        "Rua Jacob Porsak, 267 – Chácaras Aeroporto, Maringá/PR"
+      ],
+      [
+        "Unidades",
+        "256 unidades em 4 torres"
+      ],
+      [
+        "Plantas",
+        "2 quartos: 44,10 m² e 44,12 m²"
+      ],
+      [
+        "Com sacada",
+        "2 quartos: 43,98 m² e 44,00 m²"
+      ],
+      [
+        "Garagem",
+        "265 vagas de carro"
+      ],
+      [
+        "Lazer",
+        "Playground, espaço gourmet, salão de festas, pet place, bicicletários, espaço piquenique e gazebo"
+      ],
+      [
+        "Acessos",
+        "Avenida Carmen Miranda e Contorno Sul"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/montevideu-01.webp",
+        "alt": "montevideu — página 1 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-03.webp",
+        "alt": "montevideu — página 3 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-05.webp",
+        "alt": "montevideu — página 5 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-07.webp",
+        "alt": "montevideu — página 7 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-08.webp",
+        "alt": "montevideu — página 8 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-13.webp",
+        "alt": "montevideu — página 13 do material do empreendimento"
+      },
+      {
+        "src": "imagens/montevideu-15.webp",
+        "alt": "montevideu — página 15 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/montevideu-01.webp"
+  },
+  {
+    "id": "maldivas",
+    "name": "Maldivas",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Jardim Alvorada · Maringá/PR",
+    "description": "Residencial no Jardim Alvorada, com proposta de bem-estar, contato com a natureza, lazer amplo e apartamentos de 2 quartos.",
+    "facts": [
+      [
+        "Endereço",
+        "Av. Dr. Alexandre Rasgulaeff, 1911 – Jardim Alvorada, Maringá/PR"
+      ],
+      [
+        "Unidades",
+        "624 unidades em 4 torres"
+      ],
+      [
+        "Plantas",
+        "2 quartos: 36,76 m², 44,21 m² e 44,44 m²"
+      ],
+      [
+        "Com sacada",
+        "2 quartos: 44,09 m² e 44,32 m²"
+      ],
+      [
+        "Garagem",
+        "629 vagas de carro"
+      ],
+      [
+        "Lazer",
+        "Piscinas adulto e infantil, playground, playbaby, pet place, churrasqueira, gazebo, espaço piquenique, espaço zen, bicicletário e outros ambientes"
+      ],
+      [
+        "Diferenciais",
+        "Opções de sacada e vista para a natureza"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/maldivas-01.webp",
+        "alt": "maldivas — página 1 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-04.webp",
+        "alt": "maldivas — página 4 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-05.webp",
+        "alt": "maldivas — página 5 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-06.webp",
+        "alt": "maldivas — página 6 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-07.webp",
+        "alt": "maldivas — página 7 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-12.webp",
+        "alt": "maldivas — página 12 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maldivas-13.webp",
+        "alt": "maldivas — página 13 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/maldivas-01.webp"
+  },
+  {
+    "id": "tulipas",
+    "name": "Reserva das Tulipas",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Maringá/PR",
+    "description": "Condomínio com conceito de clube, áreas de lazer para diferentes idades e localização que combina tranquilidade e praticidade.",
+    "facts": [
+      [
+        "Endereço",
+        "Rua Maria Luise Schneider, 151 – Maringá/PR"
+      ],
+      [
+        "Unidades",
+        "192 unidades em 3 torres"
+      ],
+      [
+        "Pavimentos",
+        "8 pavimentos por torre, com elevador"
+      ],
+      [
+        "Plantas",
+        "2 quartos: Tipo A 41,31 m²; Tipo B 43,17 m²; Tipo C 40,55 m²"
+      ],
+      [
+        "Lazer",
+        "Piscina, quadra, playground, churrasqueira, bicicletário e espaço para banho do pet"
+      ],
+      [
+        "Localização",
+        "Aproximadamente 14 minutos do centro de Maringá, conforme o book"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/tulipas-01.webp",
+        "alt": "tulipas — página 1 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-06.webp",
+        "alt": "tulipas — página 6 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-08.webp",
+        "alt": "tulipas — página 8 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-09.webp",
+        "alt": "tulipas — página 9 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-10.webp",
+        "alt": "tulipas — página 10 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-12.webp",
+        "alt": "tulipas — página 12 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-16.webp",
+        "alt": "tulipas — página 16 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-19.webp",
+        "alt": "tulipas — página 19 do material do empreendimento"
+      },
+      {
+        "src": "imagens/tulipas-21.webp",
+        "alt": "tulipas — página 21 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/tulipas-01.webp"
+  },
+  {
+    "id": "palmeiras",
+    "name": "Reserva das Palmeiras",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Maringá/PR",
+    "description": "Condomínio que combina áreas verdes, lazer de clube e praticidade, com proposta de tranquilidade e qualidade de vida.",
+    "facts": [
+      [
+        "Endereço",
+        "Rua Maria Louise Schneider, 315 – Maringá/PR"
+      ],
+      [
+        "Unidades",
+        "128 unidades em 2 torres"
+      ],
+      [
+        "Pavimentos",
+        "8 pavimentos por torre, com elevador"
+      ],
+      [
+        "Plantas",
+        "2 quartos: Tipo A 41,31 m²; Tipo B 43,17 m²; Tipo C 40,55 m²"
+      ],
+      [
+        "Lazer",
+        "Piscina com vestiário, quadra de areia, salão de festas, churrasqueira, playground, espaço pet, praça, horta e bicicletário"
+      ],
+      [
+        "Diferenciais",
+        "Portaria com estrutura para segurança 24h e captação/reaproveitamento de água da chuva"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/palmeiras-01.webp",
+        "alt": "palmeiras — página 1 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-06.webp",
+        "alt": "palmeiras — página 6 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-08.webp",
+        "alt": "palmeiras — página 8 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-09.webp",
+        "alt": "palmeiras — página 9 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-10.webp",
+        "alt": "palmeiras — página 10 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-11.webp",
+        "alt": "palmeiras — página 11 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-15.webp",
+        "alt": "palmeiras — página 15 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-17.webp",
+        "alt": "palmeiras — página 17 do material do empreendimento"
+      },
+      {
+        "src": "imagens/palmeiras-19.webp",
+        "alt": "palmeiras — página 19 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/palmeiras-01.webp"
+  },
+  {
+    "id": "cittrino",
+    "name": "Cittrino",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Consulte a localização · Maringá/PR",
+    "description": "Empreendimento com projeto de lazer e opções de plantas, incluindo unidades tipo e opções garden.",
+    "facts": [
+      [
+        "Lazer",
+        "Espaço zen, piscina, solário, espaço gourmet, redário, playground e bicicletário"
+      ],
+      [
+        "Planta Tipo A",
+        "Final 01: área privativa de 43,60 m²"
+      ],
+      [
+        "Planta Tipo B",
+        "Finais 02 e 03: área privativa de 49,01 m²"
+      ],
+      [
+        "Planta Tipo C",
+        "Finais 04 e 05: área privativa de 44,70 m²"
+      ],
+      [
+        "Opções Garden",
+        "Final 04: 66,27 m²; Final 06: 73,83 m²"
+      ],
+      [
+        "Endereço e disponibilidade",
+        "Consulte os dados atualizados com o corretor"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/cittrino-03.webp",
+        "alt": "cittrino — página 3 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-04.webp",
+        "alt": "cittrino — página 4 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-07.webp",
+        "alt": "cittrino — página 7 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-08.webp",
+        "alt": "cittrino — página 8 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-09.webp",
+        "alt": "cittrino — página 9 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-10.webp",
+        "alt": "cittrino — página 10 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-12.webp",
+        "alt": "cittrino — página 12 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-16.webp",
+        "alt": "cittrino — página 16 do material do empreendimento"
+      },
+      {
+        "src": "imagens/cittrino-17.webp",
+        "alt": "cittrino — página 17 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/cittrino-03.webp"
+  },
+  {
+    "id": "martini",
+    "name": "Residencial Martini",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Parque Industrial · Maringá/PR",
+    "description": "Residencial na região do Parque Industrial, com apartamentos de 2 dormitórios, lazer com piscina e opções com hobby box.",
+    "facts": [
+      [
+        "Localização",
+        "Região do Parque Industrial, Maringá/PR"
+      ],
+      [
+        "Apartamentos",
+        "2 dormitórios"
+      ],
+      [
+        "Sacada",
+        "Opções com sacada e churrasqueira"
+      ],
+      [
+        "Lazer",
+        "Piscinas adulto e infantil, pet place, playground e espaço gourmet"
+      ],
+      [
+        "Diferenciais",
+        "Opções com hobby box e 3 elevadores por torre"
+      ],
+      [
+        "Endereço completo",
+        "Não informado no material disponibilizado; consulte o corretor"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/martini-03.webp",
+        "alt": "martini — página 3 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-04.webp",
+        "alt": "martini — página 4 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-05.webp",
+        "alt": "martini — página 5 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-06.webp",
+        "alt": "martini — página 6 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-07.webp",
+        "alt": "martini — página 7 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-08.webp",
+        "alt": "martini — página 8 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-10.webp",
+        "alt": "martini — página 10 do material do empreendimento"
+      },
+      {
+        "src": "imagens/martini-11.webp",
+        "alt": "martini — página 11 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/martini-03.webp"
+  },
+  {
+    "id": "maiori",
+    "name": "Residencial Maiori",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Parque Industrial · Maringá/PR",
+    "description": "Residencial no Parque Industrial, com ambientes de lazer e espaços pensados para o convívio e o dia a dia.",
+    "facts": [
+      [
+        "Endereço",
+        "Rua Prefeito Sadao Inaoka, 182 – Parque Industrial, Maringá/PR"
+      ],
+      [
+        "Lazer",
+        "Piscinas adulto e infantil, playground e churrasqueira"
+      ],
+      [
+        "Ambientes",
+        "Sala, cozinha, quartos e opções com sacada"
+      ],
+      [
+        "Plantas",
+        "O book apresenta unidades tipo, térrea e com sacada"
+      ],
+      [
+        "Metragens e unidades",
+        "Não especificadas no texto extraído do book; consulte a disponibilidade atual"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/maiori-01.webp",
+        "alt": "maiori — página 1 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-02.webp",
+        "alt": "maiori — página 2 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-03.webp",
+        "alt": "maiori — página 3 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-04.webp",
+        "alt": "maiori — página 4 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-05.webp",
+        "alt": "maiori — página 5 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-09.webp",
+        "alt": "maiori — página 9 do material do empreendimento"
+      },
+      {
+        "src": "imagens/maiori-12.webp",
+        "alt": "maiori — página 12 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/maiori-01.webp"
+  },
+  {
+    "id": "sensia-jardim",
+    "name": "Sensia Jardim",
+    "category": "lançamento",
+    "status": "Lançamento",
+    "location": "Jardim Canadá · Maringá/PR",
+    "description": "Projeto premium com plantas personalizáveis, suíte, sacada gourmet e opções garden, em uma localização próxima a serviços e conveniências.",
+    "facts": [
+      [
+        "Endereço",
+        "Av. Doutor Mário Clapier Urbinatti, 1966 – Jardim Canadá, Maringá/PR"
+      ],
+      [
+        "Plantas",
+        "2 quartos com suíte"
+      ],
+      [
+        "Diferenciais",
+        "Sacada gourmet, sala e cozinha integradas e opção de garden"
+      ],
+      [
+        "Personalização",
+        "Plantas e acabamentos personalizáveis"
+      ],
+      [
+        "Lazer",
+        "Piscinas adulto e infantil, academia, espaço kids, salão de jogos, salão de festas, gourmet, playground, pet place e quadra de areia"
+      ],
+      [
+        "Proximidades",
+        "350 m do Hospital Universitário Regional e ao lado do Street Mall Mandacaru"
+      ],
+      [
+        "Metragens e unidades",
+        "Consulte plantas e unidades disponíveis"
+      ]
+    ],
+    "gallery": [
+      {
+        "src": "imagens/sensia-03.webp",
+        "alt": "sensia — página 3 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-05.webp",
+        "alt": "sensia — página 5 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-06.webp",
+        "alt": "sensia — página 6 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-11.webp",
+        "alt": "sensia — página 11 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-12.webp",
+        "alt": "sensia — página 12 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-13.webp",
+        "alt": "sensia — página 13 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-14.webp",
+        "alt": "sensia — página 14 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-15.webp",
+        "alt": "sensia — página 15 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-19.webp",
+        "alt": "sensia — página 19 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-20.webp",
+        "alt": "sensia — página 20 do material do empreendimento"
+      },
+      {
+        "src": "imagens/sensia-21.webp",
+        "alt": "sensia — página 21 do material do empreendimento"
+      }
+    ],
+    "image": "imagens/sensia-03.webp"
+  },
+  {
+    "id": "terra-de-santa-cruz",
+    "name": "Terra de Santa Cruz",
+    "category": "indisponível",
+    "status": "Indisponível",
+    "location": "Consulte o corretor",
+    "description": "Empreendimento temporariamente marcado como indisponível. Entre em contato para conhecer outras oportunidades.",
+    "facts": [
+      [
+        "Disponibilidade",
+        "Indisponível"
+      ],
+      [
+        "Informações",
+        "Não há e-book ou ficha técnica cadastrada para este empreendimento."
+      ]
+    ],
+    "gallery": [],
+    "image": ""
+  }
+];
 
-const designPhotos = [
+    const designPhotos = [
       "data:image/webp;base64,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",
       "data:image/webp;base64,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",
       "data:image/webp;base64,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"
@@ -1364,11 +1907,11 @@ const designPhotos = [
         <article class="property-card">
           ${image}
           <div class="card-content">
-            <span class="tag">${property.status} · imagem ilustrativa</span>
+            <span class="tag ${property.status === "Indisponível" ? "unavailable" : ""}">${property.status}${property.status === "Indisponível" ? "" : " · imagens do material"}</span>
             <h3>${property.name}</h3>
             <p>${property.location}</p>
             <div class="card-actions">
-              <button class="btn btn-primary btn-small" type="button" data-details="${property.id}">Ver empreendimento</button>
+              <button class="btn btn-primary btn-small" type="button" data-details="${property.id}">${property.status === "Indisponível" ? "Ver situação" : "Ver empreendimento"}</button>
               <a class="btn btn-outline btn-small" href="${whatsappUrl(`Olá, Kauan! Tenho interesse no empreendimento ${property.name}.`)}" target="_blank" rel="noopener">WhatsApp</a>
             </div>
           </div>
@@ -1430,6 +1973,15 @@ const designPhotos = [
       document.getElementById("detailFacts").innerHTML = property.facts.map(([label, value]) => `
         <div class="fact"><span>${label}</span><strong>${value}</strong></div>
       `).join("");
+
+      const galleryEl = document.getElementById("detailGallery");
+      galleryEl.innerHTML = (property.gallery || []).map((item, index) => `
+        <figure>
+          <img src="${item.src}" alt="${item.alt}" loading="lazy">
+          <figcaption>${index === 0 ? "Fachada / apresentação" : "Imagem do material do empreendimento"}</figcaption>
+        </figure>
+      `).join("");
+      galleryEl.style.display = property.gallery && property.gallery.length ? "grid" : "none";
 
       const cover = document.getElementById("detailCover");
       cover.style.backgroundImage = `linear-gradient(rgba(16,16,16,.48), rgba(16,16,16,.75)), url("${displayImage(property)}")`;
